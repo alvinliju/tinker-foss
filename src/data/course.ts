@@ -136,7 +136,7 @@ export const courses: Course[] = [
   {
     id: 8,
     title: "Merging Branches",
-    duration: "5 min",
+    duration: "3 min",
     content: `
 - Once your branch is ready, you can merge it into the main branch.  
 
@@ -152,7 +152,7 @@ export const courses: Course[] = [
   {
     id: 9,
     title: "Connecting to Remote Repositories",
-    duration: "4 min",
+    duration: "2 min",
     content: `
 - A *remote* is a version of your repo stored online (e.g., GitHub).  
 
@@ -168,7 +168,7 @@ export const courses: Course[] = [
   {
     id: 10,
     title: "Pushing to GitHub",
-    duration: "4 min",
+    duration: "1 min",
     content: `
 - After committing locally, send changes to GitHub:  
   \`git push origin main\`  
@@ -207,7 +207,7 @@ export const courses: Course[] = [
   {
     id: 13,
     title: "GitHub Basics",
-    duration: "5 min",
+    duration: "2 min",
     content: `
 - **GitHub Features:**  
   - Host your repos online  
