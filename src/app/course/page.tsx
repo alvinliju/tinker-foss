@@ -198,7 +198,7 @@ export default function CoursePage() {
         </main>
 
         {/* Sidebar - Desktop */}
-        <aside className="hidden lg:block w-80 sticky top-2 self-start">
+        <aside className="hidden lg:block w-80 sticky top-2 self-start mx-h-sm">
           <div className="bg-gray-50 rounded-lg p-6 pt-6">
             <h3 className="text-lg font-medium text-black mb-6">All Lessons</h3>
             <div
