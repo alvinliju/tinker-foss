@@ -12,114 +12,250 @@ interface Course {
 const courses: Course[] = [
   {
     id: 1,
-    title: "Introduction to Web Development",
-    duration: "15 min",
-    content: `Welcome to the world of web development! In this foundational course, you'll learn the essential building blocks that power the modern web.
+    title: "Introduction to Git",
+    duration: "5 min",
+    content: `
+- **What is Git?**  
+  Git is a *distributed version control system*. It keeps track of changes made to files, remembers every version, and allows collaboration.  
 
-Web development is the art and science of creating websites and web applications that millions of people use every day. From simple landing pages to complex interactive applications, web development encompasses a vast landscape of technologies and possibilities.
+- **Why do developers use Git?**  
+  - Undo mistakes by going back in history  
+  - Work in teams without overwriting each other’s code  
+  - Try new ideas safely in separate branches  
+  - Share code online via platforms like GitHub  
 
-In this course, we'll explore:
-• The fundamental technologies: HTML, CSS, and JavaScript
-• How browsers work and interpret code
-• The difference between frontend and backend development
-• Modern development tools and workflows
-• Best practices for writing clean, maintainable code
-
-Whether you're a complete beginner or looking to refresh your knowledge, this course will give you the solid foundation you need to start building for the web.
-
-The journey of a thousand websites begins with a single line of code. Let's write that first line together.`,
+- **Git vs GitHub:**  
+  - **Git** is the tool installed on your computer to track changes.  
+  - **GitHub** is a website where Git repositories are hosted and shared online.  
+    `,
   },
   {
     id: 2,
-    title: "HTML Fundamentals",
-    duration: "20 min",
-    content: `HTML (HyperText Markup Language) is the backbone of every website. It's the language that structures content on the web, defining everything from headings and paragraphs to images and links.
+    title: "Installing Git and First Setup",
+    duration: "5 min",
+    content: `
+- **Download Git:** [https://git-scm.com/downloads](https://git-scm.com/downloads)  
+  Choose the installer for your operating system.  
 
-Think of HTML as the skeleton of a webpage. Just as your skeleton gives structure to your body, HTML gives structure to web content. Every webpage you've ever visited started with HTML.
+- **Verify Installation:**  
+  Open a terminal (Command Prompt, Powershell, or bash) and type:  
+  \`git --version\`  
 
-Key concepts we'll cover:
-• Understanding HTML elements and tags
-• Document structure and semantic markup
-• Working with text, links, and media
-• Forms and user input
-• Accessibility best practices
+- **Set your identity (needed for commits):**  
+  \`git config --global user.name "Your Name"\`  
+  \`git config --global user.email "you@example.com"\`  
 
-HTML might seem simple at first glance, but mastering semantic markup is crucial for creating websites that are accessible, SEO-friendly, and maintainable.
-
-By the end of this section, you'll understand how to structure content in a way that both browsers and humans can easily understand and navigate.
-
-Remember: good HTML is the foundation of good web development. Master this, and everything else becomes easier.`,
+- This tells Git who is making changes. Each commit will be tagged with your name and email.  
+    `,
   },
   {
     id: 3,
-    title: "CSS Styling & Design",
-    duration: "25 min",
-    content: `CSS (Cascading Style Sheets) is where your websites come to life visually. If HTML is the skeleton, CSS is the skin, clothes, and makeup that makes everything beautiful and engaging.
+    title: "Creating Your First Repository",
+    duration: "4 min",
+    content: `
+- A *repository (repo)* is like a project folder managed by Git.  
 
-CSS transforms plain HTML documents into stunning, interactive experiences. It controls everything from colors and fonts to layouts and animations.
+- **Steps:**  
+  1. Create a new folder: \`mkdir my-project && cd my-project\`  
+  2. Initialize it as a Git repo: \`git init\`  
+  3. Git will create a hidden \`.git\` folder that tracks changes.  
 
-What you'll master in this section:
-• CSS selectors and the cascade
-• Box model and layout fundamentals
-• Flexbox and Grid for modern layouts
-• Responsive design principles
-• Colors, typography, and visual hierarchy
-• Transitions and basic animations
-
-Modern CSS is incredibly powerful. With features like Flexbox and Grid, you can create complex layouts that were once impossible or required hacky workarounds.
-
-The key to great CSS is understanding that it's not just about making things look pretty—it's about creating intuitive, accessible user experiences that work across all devices and screen sizes.
-
-Design is not just what it looks like and feels like. Design is how it works. Let's make it work beautifully.`,
+- **Check status anytime:**  
+  \`git status\` → Shows which files are tracked or untracked.
+    `,
   },
   {
     id: 4,
-    title: "JavaScript Interactivity",
-    duration: "30 min",
-    content: `JavaScript is the programming language of the web. It's what makes websites interactive, dynamic, and responsive to user actions. Without JavaScript, the web would be a collection of static documents.
+    title: "Staging Changes (git add)",
+    duration: "4 min",
+    content: `
+- Git works in 3 areas:  
+  1. **Working Directory** → Your files on disk.  
+  2. **Staging Area** → Files you’ve marked for the next commit.  
+  3. **Repository** → The permanent history of commits.  
 
-JavaScript transforms static HTML and CSS into living, breathing applications. It handles user interactions, manipulates content in real-time, and communicates with servers to fetch and send data.
+- **Stage a file:**  
+  \`git add index.html\`  
 
-Core JavaScript concepts:
-• Variables, functions, and control structures
-• DOM manipulation and event handling
-• Asynchronous programming with promises
-• Modern ES6+ features and syntax
-• Error handling and debugging techniques
-• Working with APIs and external data
+- **Stage all files:**  
+  \`git add .\`  
 
-JavaScript has evolved tremendously over the years. What started as a simple scripting language is now a powerful, versatile language that runs not just in browsers, but on servers, mobile devices, and even desktop applications.
-
-The beauty of JavaScript lies in its flexibility and ubiquity. Once you learn JavaScript, you can build almost anything—web apps, mobile apps, server applications, and more.
-
-Today, JavaScript powers the interactive web. Tomorrow, it might power your entire career.`,
+- Think of staging as "preparing a basket of changes before saving".
+    `,
   },
   {
     id: 5,
-    title: "Building Your First Project",
-    duration: "35 min",
-    content: `Congratulations! You've learned the fundamentals of web development. Now it's time to put everything together and build something real.
+    title: "Saving Changes (git commit)",
+    duration: "5 min",
+    content: `
+- A *commit* is like a checkpoint in your project.  
 
-In this final section, we'll combine HTML, CSS, and JavaScript to create a complete project from scratch. This is where theory meets practice, and where you'll truly understand how all the pieces fit together.
+- **Make a commit:**  
+  \`git commit -m "Add homepage"\`  
 
-Your project journey:
-• Planning and wireframing your application
-• Setting up your development environment
-• Building the HTML structure
-• Styling with CSS for a professional look
-• Adding interactivity with JavaScript
-• Testing across different browsers and devices
-• Deploying your project to the web
+- Each commit has:  
+  - A unique ID (hash)  
+  - Author name/email  
+  - Commit message  
+  - Snapshot of changes  
 
-Building projects is the best way to solidify your learning. Each project teaches you something new and builds your confidence as a developer.
-
-Don't worry about making it perfect—your first project won't be your last. The goal is to complete something, learn from the process, and use that knowledge to build something even better next time.
-
-Remember: every expert was once a beginner. Every pro was once an amateur. Every icon was once an unknown. The difference is that they started, and more importantly, they finished.
-
-Your journey as a web developer starts now. Let's build something amazing together.`,
+- **Good practice:** Write meaningful messages like "Fix login bug" instead of just "update".  
+    `,
   },
-]
+  {
+    id: 6,
+    title: "Viewing History (git log)",
+    duration: "4 min",
+    content: `
+- **See full history:**  
+  \`git log\`  
+
+- **Simplified one-line view:**  
+  \`git log --oneline\`  
+
+- Shows commit IDs and messages. Useful for finding specific changes.  
+
+- Example:  
+  \`a1b2c3 Add homepage\`  
+  \`d4e5f6 Fix typo in README\`
+    `,
+  },
+  {
+    id: 7,
+    title: "Branches Explained",
+    duration: "5 min",
+    content: `
+- A *branch* is like a copy of your project where you can make changes safely.  
+
+- **Main Branch:** Usually called \`main\` (older projects may use \`master\`).  
+
+- **Common Commands:**  
+  - Create: \`git branch feature-login\`  
+  - Switch: \`git checkout feature-login\`  
+  - List: \`git branch\`  
+
+- Branches allow multiple developers to work on features without touching the main code.  
+    `,
+  },
+  {
+    id: 8,
+    title: "Merging Branches",
+    duration: "5 min",
+    content: `
+- Once your branch is ready, you can merge it into the main branch.  
+
+- **Steps:**  
+  1. Switch to main: \`git checkout main\`  
+  2. Merge: \`git merge feature-login\`  
+
+- If two people edited the same part of a file, you’ll get a *merge conflict*. Git will mark the file and ask you to decide which version to keep.  
+
+- After resolving, commit again to finish the merge.  
+    `,
+  },
+  {
+    id: 9,
+    title: "Connecting to Remote Repositories",
+    duration: "4 min",
+    content: `
+- A *remote* is a version of your repo stored online (e.g., GitHub).  
+
+- **Add a remote:**  
+  \`git remote add origin https://github.com/username/repo.git\`  
+
+- **Check remotes:**  
+  \`git remote -v\`  
+
+- This links your local repo to the GitHub repo.  
+    `,
+  },
+  {
+    id: 10,
+    title: "Pushing to GitHub",
+    duration: "4 min",
+    content: `
+- After committing locally, send changes to GitHub:  
+  \`git push origin main\`  
+
+- First push may require:  
+  \`git push -u origin main\` → Sets "origin main" as default.  
+
+- After this, you can just run \`git push\`.  
+    `,
+  },
+  {
+    id: 11,
+    title: "Pulling Updates",
+    duration: "3 min",
+    content: `
+- If teammates push new commits, you need to update your local repo.  
+
+- **Command:**  
+  \`git pull origin main\`  
+
+- This fetches changes from GitHub and merges them into your branch.  
+    `,
+  },
+  {
+    id: 12,
+    title: "Cloning Repositories",
+    duration: "3 min",
+    content: `
+- To copy an entire GitHub repo to your computer:  
+
+\`git clone https://github.com/username/repo.git\`  
+
+- This creates a local folder with all commits, branches, and files.  
+    `,
+  },
+  {
+    id: 13,
+    title: "GitHub Basics",
+    duration: "5 min",
+    content: `
+- **GitHub Features:**  
+  - Host your repos online  
+  - Collaborate with others  
+  - Create Issues (track tasks/bugs)  
+  - Manage Pull Requests (code reviews)  
+
+- Think of GitHub as a social network for code.  
+    `,
+  },
+  {
+    id: 14,
+    title: "Pull Requests (PRs)",
+    duration: "5 min",
+    content: `
+- A Pull Request is how you propose changes.  
+
+- **Typical workflow:**  
+  1. Create a new branch  
+  2. Push branch to GitHub  
+  3. Open a Pull Request  
+  4. Team reviews changes  
+  5. Merge into main branch  
+
+- This ensures clean collaboration and peer review.  
+    `,
+  },
+  {
+    id: 15,
+    title: "Collaboration Workflow",
+    duration: "5 min",
+    content: `
+- A common GitHub team workflow:  
+  1. **Clone** the repo  
+  2. **Branch** off main for a new feature  
+  3. **Commit** changes locally  
+  4. **Push** branch to GitHub  
+  5. Open a **Pull Request**  
+  6. After approval, **merge** to main  
+
+- This process is called *Feature Branch Workflow*.  
+    `,
+  },
+];
 
 export default function CoursePage() {
   const [currentCourseIndex, setCurrentCourseIndex] = useState(0)
