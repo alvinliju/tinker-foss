@@ -199,11 +199,11 @@ export default function CoursePage() {
 
         {/* Sidebar - Desktop */}
         <aside className="hidden lg:block w-80 sticky top-2 self-start">
-          <div className="bg-gray-50 rounded-lg p-6">
+          <div className="bg-gray-50 rounded-lg p-6 pt-6">
             <h3 className="text-lg font-medium text-black mb-6">All Lessons</h3>
             <div
               className="space-y-3"
-              style={{ maxHeight: "60vh", overflowY: "auto" }}
+              style={{ maxHeight: "50vh", overflowY: "auto" }}
             >
               {courses.map((course, index) => (
                 <button
