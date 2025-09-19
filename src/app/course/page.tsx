@@ -3,7 +3,7 @@
 import { useState } from "react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
-import { courses, Course } from "@/data/courses"
+import { courses, Course } from "@/data/course"
 
 export default function CoursePage() {
   const [currentCourseIndex, setCurrentCourseIndex] = useState(0)
@@ -14,6 +14,7 @@ export default function CoursePage() {
   const goToCourse = (index: number) => setCurrentCourseIndex(index)
 
   return (
+    <>
     <div className="min-h-screen bg-white">
       <header className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
@@ -118,5 +119,6 @@ export default function CoursePage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
