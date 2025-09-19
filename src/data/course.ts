@@ -5,7 +5,7 @@ export interface Course {
   duration: string
 }
 
-const courses: Course[] = [
+export const courses: Course[] = [
   {
     id: 1,
     title: "Introduction to Git",
