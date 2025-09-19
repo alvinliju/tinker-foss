@@ -1,15 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs/server';
-import { runQuery } from '@/lib/db';
-
+import { auth, currentUser } from '@clerk/nextjs/server';
+import { runQuery, ensureUserExists } from '@/lib/db';
 
 export async function GET(request: NextRequest) {
   try {
-    const { userId } = auth();
+    const { userId } = await auth();
     
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
+
+    // Get current user data from Clerk
+    const user = await currentUser();
+    if (!user) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
+    }
+
+    // Ensure user exists in our database
+    await ensureUserExists(userId, {
+      username: user.username,
+      firstName: user.firstName,
+      email: user.emailAddresses[0]?.emailAddress,
+      imageUrl: user.imageUrl
+    });
 
     try {
       // Get user's lesson progress
@@ -18,10 +31,8 @@ export async function GET(request: NextRequest) {
           lp.lesson_id,
           lp.completed,
           lp.points_earned,
-          lp.completed_at,
-          u.total_points
+          lp.completed_at
          FROM lesson_progress lp
-         JOIN users u ON u.clerk_id = lp.user_id
          WHERE lp.user_id = ?
          ORDER BY lp.lesson_id`,
         [userId]
@@ -42,6 +53,8 @@ export async function GET(request: NextRequest) {
         pointsEarned: item.points_earned,
         completedAt: item.completed_at
       }));
+
+      console.log(`📊 Progress fetched for user ${userId}: ${progress.length} lessons, ${totalPoints} total points`);
 
       return NextResponse.json({
         progress,

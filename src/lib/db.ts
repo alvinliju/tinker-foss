@@ -46,7 +46,7 @@ export async function initDatabase() {
       )
     `);
 
-    // Create lesson_progress table
+    // Create lesson_progress table - FIXED foreign key reference
     await run(`
       CREATE TABLE IF NOT EXISTS lesson_progress (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -56,7 +56,7 @@ export async function initDatabase() {
         points_earned INTEGER DEFAULT 0,
         completed_at DATETIME NULL,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+        FOREIGN KEY (user_id) REFERENCES users(clerk_id) ON DELETE CASCADE,
         UNIQUE(user_id, lesson_id)
       )
     `);
@@ -91,5 +91,45 @@ export async function runStatement(query: string, params: any[] = []): Promise<a
     return result;
   } finally {
     db.close();
+  }
+}
+
+// NEW: Helper function to ensure user exists in database
+export async function ensureUserExists(userId: string, userData: any) {
+  try {
+    // Check if user exists
+    const existingUser = await runQuery(
+      'SELECT * FROM users WHERE clerk_id = ?',
+      [userId]
+    );
+
+    if (existingUser.length === 0) {
+      // Create new user
+      await runStatement(
+        'INSERT INTO users (id, clerk_id, username, email, avatar_url) VALUES (?, ?, ?, ?, ?)',
+        [
+          userId, // Use clerk_id as primary key too
+          userId,
+          userData.username || userData.firstName || 'User',
+          userData.email || '',
+          userData.imageUrl || ''
+        ]
+      );
+      console.log('Created new user in database:', userId);
+    } else {
+      // Update existing user info
+      await runStatement(
+        'UPDATE users SET username = ?, email = ?, avatar_url = ?, updated_at = datetime("now") WHERE clerk_id = ?',
+        [
+          userData.username || userData.firstName || 'User',
+          userData.email || '',
+          userData.imageUrl || '',
+          userId
+        ]
+      );
+    }
+  } catch (error) {
+    console.error('Error ensuring user exists:', error);
+    throw error;
   }
 }
