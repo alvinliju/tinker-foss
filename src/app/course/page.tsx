@@ -151,9 +151,8 @@ export default function CoursePage() {
             <button
               onClick={() => completeLesson(currentCourse.id)}
               disabled={loading}
-              className={`w-full px-8 py-4 rounded-lg font-medium transition-colors mb-6 ${
-                loading ? "bg-gray-100 text-gray-400 cursor-not-allowed" : "bg-green-600 text-white hover:bg-green-700"
-              }`}
+              className={`w-full px-8 py-4 rounded-lg font-medium transition-colors mb-6 ${loading ? "bg-gray-100 text-gray-400 cursor-not-allowed" : "bg-green-600 text-white hover:bg-green-700"
+                }`}
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
@@ -176,12 +175,11 @@ export default function CoursePage() {
             <button
               onClick={goToPrevious}
               disabled={
-              currentCourseIndex === 0}
-              className={`px-6 py-3 rounded-lg transition-colors ${
-                currentCourseIndex === 0
+                currentCourseIndex === 0}
+              className={`px-6 py-3 rounded-lg transition-colors ${currentCourseIndex === 0
                   ? "text-gray-400 cursor-not-allowed"
                   : "text-gray-600 hover:text-black underline"
-              }`}
+                }`}
             >
               ← Previous
             </button>
@@ -189,11 +187,10 @@ export default function CoursePage() {
             <button
               onClick={goToNext}
               disabled={currentCourseIndex === courses.length - 1}
-              className={`px-8 py-3 rounded-lg transition-colors ${
-                currentCourseIndex === courses.length - 1
+              className={`px-8 py-3 rounded-lg transition-colors ${currentCourseIndex === courses.length - 1
                   ? "text-gray-400 cursor-not-allowed bg-gray-100"
                   : "bg-black text-white hover:bg-gray-800"
-              }`}
+                }`}
             >
               Next →
             </button>
@@ -201,19 +198,21 @@ export default function CoursePage() {
         </main>
 
         {/* Sidebar - Desktop */}
-        <aside className="hidden lg:block w-80 sticky top-8 self-start">
+        <aside className="hidden lg:block w-80 sticky top-2 self-start">
           <div className="bg-gray-50 rounded-lg p-6">
             <h3 className="text-lg font-medium text-black mb-6">All Lessons</h3>
-            <div className="space-y-3">
+            <div
+              className="space-y-3"
+              style={{ maxHeight: "60vh", overflowY: "auto" }}
+            >
               {courses.map((course, index) => (
                 <button
                   key={course.id}
                   onClick={() => goToCourse(index)}
-                  className={`w-full text-left p-4 rounded-lg transition-colors ${
-                    index === currentCourseIndex
+                  className={`w-full text-left p-4 rounded-lg transition-colors ${index === currentCourseIndex
                       ? "bg-black text-white"
                       : "bg-white text-gray-600 hover:text-black hover:bg-gray-100"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center justify-between">
                     <div>
@@ -224,9 +223,8 @@ export default function CoursePage() {
                         )}
                       </div>
                       <div
-                        className={`text-xs mt-1 ${
-                          index === currentCourseIndex ? "text-gray-300" : "text-gray-500"
-                        }`}
+                        className={`text-xs mt-1 ${index === currentCourseIndex ? "text-gray-300" : "text-gray-500"
+                          }`}
                       >
                         {course.duration}
                       </div>
