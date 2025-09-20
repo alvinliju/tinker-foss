@@ -65,11 +65,11 @@ export default function CTFLandingPage() {
               <span className="font-medium text-black">TinkerHub</span>
             </Link>
             <div className="flex items-center gap-6">
-              <nav className="flex gap-6">
+            <nav className="flex gap-6">
                 <Link href="/course" className="text-black text-sm">Courses</Link>
                 <Link href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</Link>
                 <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</Link>
-              </nav>
+            </nav>
               {isLoaded && (
                 isSignedIn ? (
                   <UserButton afterSignOutUrl="/" />
@@ -91,7 +91,7 @@ export default function CTFLandingPage() {
           <div className="mb-12">
             {/* Official TinkerHub Logo */}
             <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-8 p-2">
-              <Image 
+        <Image
                 src="https://paths.tinkerhub.org/logo.png" 
                 alt="TinkerHub Logo" 
                 width={48} 

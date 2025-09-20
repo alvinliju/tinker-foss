@@ -91,7 +91,49 @@ Beginners often provide the most valuable contributions by asking obvious questi
 - Communicate before making large changes
 - Follow existing code style
 - Test your changes thoroughly
+<<<<<<< HEAD
 - Be patient with feedback
+=======
+- Follow the project's coding standards
+  - Write clear commit messages  
+
+**Learn from Feedback:**
+- Don't take feedback personally
+- View code reviews as learning opportunities
+- Ask for clarification if feedback is unclear
+- Make requested changes promptly
+
+**Common Beginner Mistakes (And How to Avoid Them)**
+
+**1. Not Reading the Contributing Guidelines**
+Every project has specific rules. Always read CONTRIBUTING.md first.
+
+**2. Making Changes Without Discussion**
+Large changes should be discussed before implementation.
+
+**3. Ignoring Code Style**
+Follow the project's existing patterns and style guides.
+
+**4. Poor Commit Messages**
+Write clear, descriptive commit messages that explain the "why."
+
+**5. Not Testing Changes**
+Always test your changes and run existing tests.
+
+**Building Your FOSS Resume**
+
+**Document Your Journey:**
+- Keep a list of your contributions
+- Write blog posts about what you learned
+- Share your experiences on social media
+- Speak at meetups about your FOSS journey
+
+**Networking:**
+- Connect with other contributors
+- Join project communities (Discord, Slack, IRC)
+- Attend FOSS conferences and meetups
+- Follow maintainers and contributors on social media
+>>>>>>> a241c72180ebe7063bd39b4ec3ace7a2314ca16e
 
 **Your First Contribution Checklist:**
 □ Find an interesting project
