@@ -75,7 +75,7 @@ export async function runQuery(query: string, params: any[] = []): Promise<any[]
   const all = promisify(db.all.bind(db));
   
   try {
-    const result = await all(query, params);
+    const result:any = await all(query);
     return result;
   } finally {
     db.close();
@@ -87,7 +87,7 @@ export async function runStatement(query: string, params: any[] = []): Promise<a
   const run = promisify(db.run.bind(db));
   
   try {
-    const result = await run(query, params);
+    const result = await run(query);
     return result;
   } finally {
     db.close();

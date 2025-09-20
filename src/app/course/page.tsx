@@ -162,20 +162,18 @@ export default function CoursePage() {
 
       <div className="max-w-6xl mx-auto px-4 pb-16 lg:flex lg:gap-12">
         <main className="flex-1 max-w-2xl space-y-8 text-gray-700 leading-relaxed text-lg">
-          <ReactMarkdown
+        <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
-              p: ({ children, ...props }) => <p className="mb-4" {...props} />,
-              li: ({ children, ...props }) => <li className="ml-6 mb-2" {...props} />,
-              code: ({ children, className, ...props }):any =>
-                {const isInline = !className || className.includes('language-');
-                return isInline ? (
+              p: ({ node, ...props }) => <p className="mb-4" {...props} />,
+              li: ({ node, ...props }) => <li className="ml-6 mb-2" {...props} />,
+              code: ({ inline, className, children, ...props }: any) =>
+                inline ? (
                   <code className="bg-gray-100 px-1 rounded text-sm" {...props}>{children}</code>
                 ) : (
-                  <pre className="bg-gray-100 p-4 rounded overflow-x-auto" ><code>{children}</code></pre>
-                );
-              },
-              a: ({ children, ...props }) => <a className="text-blue-600 underline" {...props} />,
+                  <pre className="bg-gray-100 p-4 rounded overflow-x-auto" {...props}><code>{children}</code></pre>
+                ),
+              a: ({ node, ...props }) => <a className="text-blue-600 underline" {...props} />,
             }}
           >
             {currentCourse.content}

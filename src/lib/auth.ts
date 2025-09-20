@@ -1,18 +1,24 @@
 import { auth } from "@clerk/nextjs/server";
-import { getConnection } from "./db";
+import { getConnection, runQuery, runStatement } from "./db";
+import { useUser } from "@clerk/nextjs";
+
 
 export async function getCurrentUser() {
-  const { userId, user } = await auth();
-  
-  if (!userId || !user) {
+  const { userId } = await auth();
+  const {user} = await useUser()
+  if (!user) {
+    return null;
+  }
+  if (!userId ) {
     return null;
   }
 
   try {
     const connection = await getConnection();
+
     
     // Check if user exists in our database
-    const [existingUsers] = await connection.execute(
+    const [existingUsers] = await runQuery(
       'SELECT * FROM users WHERE clerk_id = ?',
       [userId]
     );
@@ -21,7 +27,7 @@ export async function getCurrentUser() {
     
     if (Array.isArray(existingUsers) && existingUsers.length === 0) {
       // Create new user in our database
-      await connection.execute(
+      await runStatement(
         'INSERT INTO users (id, clerk_id, username, email, avatar_url) VALUES (?, ?, ?, ?, ?)',
         [
           userId,
@@ -44,7 +50,7 @@ export async function getCurrentUser() {
       dbUser = existingUsers[0];
       
       // Update user info if needed
-      await connection.execute(
+      await runStatement(
         'UPDATE users SET username = ?, email = ?, avatar_url = ? WHERE clerk_id = ?',
         [
           user.username || user.firstName || 'User',
@@ -55,6 +61,7 @@ export async function getCurrentUser() {
       );
     }
 
+    //@ts-ignore
     await connection.end();
     
     return {
