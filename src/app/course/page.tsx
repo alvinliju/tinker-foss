@@ -165,15 +165,17 @@ export default function CoursePage() {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
-              p: ({ node, ...props }) => <p className="mb-4" {...props} />,
-              li: ({ node, ...props }) => <li className="ml-6 mb-2" {...props} />,
-              code: ({ node, inline, className, children, ...props }) =>
-                inline ? (
+              p: ({ children, ...props }) => <p className="mb-4" {...props} />,
+              li: ({ children, ...props }) => <li className="ml-6 mb-2" {...props} />,
+              code: ({ children, className, ...props }):any =>
+                {const isInline = !className || className.includes('language-');
+                return isInline ? (
                   <code className="bg-gray-100 px-1 rounded text-sm" {...props}>{children}</code>
                 ) : (
-                  <pre className="bg-gray-100 p-4 rounded overflow-x-auto" {...props}><code>{children}</code></pre>
-                ),
-              a: ({ node, ...props }) => <a className="text-blue-600 underline" {...props} />,
+                  <pre className="bg-gray-100 p-4 rounded overflow-x-auto" ><code>{children}</code></pre>
+                );
+              },
+              a: ({ children, ...props }) => <a className="text-blue-600 underline" {...props} />,
             }}
           >
             {currentCourse.content}

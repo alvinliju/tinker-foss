@@ -279,7 +279,7 @@ Look for issues labeled:
 - Focus on making one good contribution rather than many poor ones
 - Test your changes thoroughly
 - Follow the project's coding standards
-- Write clear commit messages
+  - Write clear commit messages  
 
 **Learn from Feedback:**
 - Don't take feedback personally
