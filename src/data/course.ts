@@ -1,16 +1,16 @@
 export interface Course {
-  id: number
-  title: string
-  content: string
-  duration: string
+    id: number
+    title: string
+    content: string
+    duration: string
 }
 
 export const courses: Course[] = [
-  {
-    id: 1,
-    title: "What is FOSS?",
-    duration: "12 min",
-    content: `Welcome to the world of Free and Open Source Software (FOSS)! This journey will transform how you think about technology, collaboration, and building software that truly serves humanity.
+    {
+        id: 1,
+        title: "What is FOSS?",
+        duration: "12 min",
+        content: `Welcome to the world of Free and Open Source Software (FOSS)! This journey will transform how you think about technology, collaboration, and building software that truly serves humanity.
 
 **What does FOSS mean?**
 
@@ -50,12 +50,12 @@ FOSS powers the internet. Google, Facebook, Netflix, and virtually every major t
 But beyond technology, FOSS represents a different way of creating value—through collaboration, sharing knowledge, and building commons that benefit everyone.
 
 This isn't just about code. It's about creating a more open, collaborative, and equitable digital world. And you're about to become part of that movement.`
-  },
-  {
-    id: 2,
-    title: "Why Do We Need FOSS?",
-    duration: "15 min",
-    content: `Understanding why FOSS matters is crucial for any developer in today's world. Let's explore the compelling reasons why FOSS isn't just nice to have—it's essential for the future of technology.
+    },
+    {
+        id: 2,
+        title: "Why Do We Need FOSS?",
+        duration: "15 min",
+        content: `Understanding why FOSS matters is crucial for any developer in today's world. Let's explore the compelling reasons why FOSS isn't just nice to have—it's essential for the future of technology.
 
 **1. Breaking Down Digital Monopolies**
 
@@ -156,12 +156,12 @@ Imagine a world where:
 That's the world without FOSS. That's why we need it—not just as developers, but as digital citizens who want a free and open internet.
 
 FOSS isn't just about software. It's about freedom, innovation, and building a better digital future for everyone.`
-  },
-  {
-    id: 3,
-    title: "How to Start Contributing to FOSS",
-    duration: "20 min",
-    content: `Ready to join the global community of FOSS contributors? This lesson will guide you through your first steps into the exciting world of open source contribution.
+    },
+    {
+        id: 3,
+        title: "How to Start Contributing to FOSS",
+        duration: "20 min",
+        content: `Ready to join the global community of FOSS contributors? This lesson will guide you through your first steps into the exciting world of open source contribution.
 
 **Myth Busting: You Don't Need to Be an Expert**
 
@@ -338,12 +338,12 @@ The maintainers of major FOSS projects were once exactly where you are now. They
 Your journey into FOSS starts with a single contribution. It doesn't have to be perfect—it just has to be a start.
 
 The open source community is waiting to welcome you. Take that first step!`
-  },
-  {
-    id: 4,
-    title: "Analyzing Codebases Without Overwhelming Yourself",
-    duration: "18 min",
-    content: `Diving into a large, unfamiliar codebase can feel like trying to drink from a fire hose. This lesson will teach you systematic approaches to understand any codebase efficiently without getting overwhelmed.
+    },
+    {
+        id: 4,
+        title: "Analyzing Codebases Without Overwhelming Yourself",
+        duration: "18 min",
+        content: `Diving into a large, unfamiliar codebase can feel like trying to drink from a fire hose. This lesson will teach you systematic approaches to understand any codebase efficiently without getting overwhelmed.
 
 **The Codebase Analysis Mindset**
 
@@ -561,12 +561,12 @@ As you learn, document your findings:
 Even experienced developers need time to understand new codebases. The goal isn't to understand everything immediately—it's to build a mental model that you can expand over time.
 
 Every codebase tells a story. Your job is to become a good reader of that story, one chapter at a time.`
-  },
-  {
-    id: 5,
-    title: "The Black Box Concept and Problem-Solving",
-    duration: "16 min",
-    content: `The black box concept is one of the most powerful problem-solving tools in software development. Master this approach, and you'll be able to tackle complex problems without getting lost in unnecessary details.
+    },
+    {
+        id: 5,
+        title: "The Black Box Concept and Problem-Solving",
+        duration: "16 min",
+        content: `The black box concept is one of the most powerful problem-solving tools in software development. Master this approach, and you'll be able to tackle complex problems without getting lost in unnecessary details.
 
 **What is the Black Box Concept?**
 
@@ -829,12 +829,12 @@ You don't need to understand:
 The black box concept isn't about avoiding complexity—it's about managing complexity intelligently. By thinking in terms of black boxes, you can contribute to FOSS projects much more effectively, solving problems without getting overwhelmed by implementation details.
 
 Master this approach, and you'll find that even the most complex codebases become navigable and manageable.`
-  },
-  {
-    id: 6,
-    title: "Using GitHub and Git for FOSS",
-    duration: "22 min",
-    content: `Git and GitHub are the backbone of modern FOSS development. This lesson will teach you not just the commands, but the workflows, etiquette, and best practices that make you an effective FOSS contributor.
+    },
+    {
+        id: 6,
+        title: "Using GitHub and Git for FOSS",
+        duration: "22 min",
+        content: `Git and GitHub are the backbone of modern FOSS development. This lesson will teach you not just the commands, but the workflows, etiquette, and best practices that make you an effective FOSS contributor.
 
 **Git vs GitHub: Understanding the Difference**
 
@@ -1204,12 +1204,12 @@ Don't let Git complexity discourage you from contributing to FOSS. Start with th
 The FOSS community is generally very helpful with Git questions. When in doubt, ask for help—most maintainers are happy to guide newcomers through the process.
 
 Your first contribution is just a few Git commands away!`
-  },
-  {
-    id: 7,
-    title: "Practical Guide: Contributing to TinkerHub's Simple Meme Generator",
-    duration: "25 min",
-    content: `Congratulations on completing the FOSS fundamentals! Now it's time to put your knowledge into practice by contributing to a real project: TinkerHub's Simple Meme Generator - a beginner-friendly HTML/CSS/JavaScript project.
+    },
+    {
+        id: 7,
+        title: "Practical Guide: Contributing to TinkerHub's Simple Meme Generator",
+        duration: "25 min",
+        content: `Congratulations on completing the FOSS fundamentals! Now it's time to put your knowledge into practice by contributing to a real project: TinkerHub's Simple Meme Generator - a beginner-friendly HTML/CSS/JavaScript project.
 
 **About the TinkerHub Simple Meme Generator**
 
@@ -1258,7 +1258,7 @@ This is a lightweight, beginner-friendly project designed to:
 **Step 1: Explore the Project**
 
 Visit the repository:
-    https://github.com/tinkerhub-org/simple-meme-generator
+    https://github.com/JakeOJeff/foss-flip
 
 **Read These Files First:**
 - README.md - Project overview and setup instructions
@@ -1347,11 +1347,11 @@ Look for issues labeled:
 - Document code with comments
 - Create feature documentation
 `},
- {
-    id: 8,
-    title: "Practical Guide: Making your First Contribution!",
-    duration: "25 min",
-    content:`
+    {
+        id: 8,
+        title: "Practical Guide: Making your First Contribution!",
+        duration: "20 min",
+        content: `
 **Making Your First Contribution**
 
 **Example: Adding a "Random Meme Template" Button**
@@ -1546,10 +1546,10 @@ This is a perfect beginner task that touches HTML, CSS, and JavaScript:
     ### Additional Notes
     This is my first contribution to the project! I'm excited to be part of the TinkerHub community. The feature is simple but adds real value for users who want quick inspiration. Please let me know if any changes are needed.
 `}, {
-    id: 9,
-    title: "Practical Guide: Contributing to TinkerHub's Simple Meme Generator",
-    duration: "5 min",
-    content:`
+        id: 9,
+        title: "Conclusion of your Journey",
+        duration: "5 min",
+        content: `
 **Final Words: Your FOSS Journey Starts Now**
 
 You've completed the theoretical foundation of FOSS contribution. The TinkerHub Simple Meme Generator is your practical playground where you can:
@@ -1572,5 +1572,5 @@ The world of Free and Open Source Software is waiting for your unique contributi
 ---
 
 *Your journey from FOSS learner to FOSS contributor starts with a single pull request. Make it today!*`
-  }
+    }
 ];
