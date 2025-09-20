@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react"
 import { useUser, SignInButton, UserButton } from "@clerk/nextjs"
 import ReactMarkdown from "react-markdown"
-import remarkGfm from "remark-gfm"
 import { courses, Course } from "@/data/course"
+import remarkGfm from "remark-gfm"
 import Image from "next/image";
 import Link from "next/link";
 
