@@ -2,7 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { getConnection } from "./db";
 
 export async function getCurrentUser() {
-  const { userId, user } = auth();
+  const { userId, user } = await auth();
   
   if (!userId || !user) {
     return null;
