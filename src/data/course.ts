@@ -1346,8 +1346,13 @@ Look for issues labeled:
 - Improve README instructions
 - Document code with comments
 - Create feature documentation
-
-**Step 5: Making Your First Contribution**
+`},
+ {
+    id: 8,
+    title: "Practical Guide: Making your First Contribution!",
+    duration: "25 min",
+    content:`
+**Making Your First Contribution**
 
 **Example: Adding a "Random Meme Template" Button**
 
@@ -1540,102 +1545,11 @@ This is a perfect beginner task that touches HTML, CSS, and JavaScript:
 
     ### Additional Notes
     This is my first contribution to the project! I'm excited to be part of the TinkerHub community. The feature is simple but adds real value for users who want quick inspiration. Please let me know if any changes are needed.
-
-**Advanced Contribution Ideas**
-
-Once you're comfortable with the basics, consider these features:
-
-**1. Meme Templates Collection**
-- Add seasonal templates (holidays, events)
-- Create template categories
-- Add template search functionality
-
-**2. Enhanced Text Editor**
-- Rich text formatting (bold, italic, colors)
-- Font selection dropdown
-- Text positioning with drag and drop
-- Multiple text boxes per meme
-
-**3. Social Features**
-- Share memes on social media
-- Generate shareable links
-- Meme gallery/showcase
-- User favorites system
-
-**4. Accessibility Improvements**
-- Keyboard navigation
-- Screen reader support
-- High contrast mode
-- Font size adjustments
-
-**5. Performance Optimizations**
-- Image compression
-- Lazy loading for templates
-- Caching for better performance
-- Progressive Web App features
-
-**Community Engagement**
-
-**Join the TinkerHub Community:**
-- **Discord**: https://discord.gg/tinkerhub
-- **Telegram**: @tinkerhub_community
-- **Twitter**: @tinkerhub_org
-- **Website**: https://tinkerhub.org
-
-**Weekly Events:**
-- **Monday**: Community standup calls
-- **Wednesday**: Code review sessions  
-- **Friday**: Demo day for new features
-- **Saturday**: Beginner-friendly workshops
-
-**Mentorship Program:**
-- Get paired with an experienced contributor
-- Regular one-on-one guidance sessions
-- Career advice and technical mentoring
-- Open source portfolio building
-
-**Recognition and Growth**
-
-**Contribution Levels:**
-1. **First-Timer**: Your first merged PR
-2. **Regular**: 5+ merged contributions
-3. **Core Contributor**: 20+ contributions + code review participation
-4. **Maintainer**: Trusted with repository access and project decisions
-
-**Benefits of Contributing:**
-- Real project experience for your resume
-- Networking with industry professionals
-- Learning modern web development practices
-- Building a public portfolio
-- Potential internship and job opportunities
-
-**Your Action Plan**
-
-**This Week:**
-□ Explore the simple meme generator repository
-□ Set up your development environment (just open in browser!)
-□ Join the TinkerHub Discord community
-□ Find and comment on a beginner-friendly issue
-□ Introduce yourself to the community
-
-**Next Week:**
-□ Start working on your first contribution
-□ Ask questions in the community channels
-□ Attend a community call or workshop
-□ Submit your first pull request
-
-**This Month:**
-□ Get your first PR merged
-□ Help another newcomer get started
-□ Attend demo day and show your work
-□ Plan your second contribution
-
-**Beyond:**
-□ Become a regular contributor
-□ Mentor new community members
-□ Propose new features and improvements
-□ Consider applying for maintainer status
-
+`}, {
+    id: 9,
+    title: "Practical Guide: Contributing to TinkerHub's Simple Meme Generator",
+    duration: "5 min",
+    content:`
 **Final Words: Your FOSS Journey Starts Now**
 
 You've completed the theoretical foundation of FOSS contribution. The TinkerHub Simple Meme Generator is your practical playground where you can:
@@ -1656,12 +1570,6 @@ The world of Free and Open Source Software is waiting for your unique contributi
 **Welcome to the TinkerHub family. Let's build something amazing together! 🚀**
 
 ---
-
-**Ready to contribute?** Visit the repository and make your first commit to open source history:
-
-**Repository**: https://github.com/tinkerhub-org/simple-meme-generator
-**Community**: https://discord.gg/tinkerhub
-**Getting Started**: https://contribute.tinkerhub.org
 
 *Your journey from FOSS learner to FOSS contributor starts with a single pull request. Make it today!*`
   }
