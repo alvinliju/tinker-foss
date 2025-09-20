@@ -18,7 +18,7 @@ export default function TinkerHubLetter() {
                 <span className="font-medium text-black">TinkerHub</span>
               </Link>
               <nav className="flex gap-6">
-                <Link href="/course" className="text-gray-500 hover:text-black transition-colors text-sm">Courses</Link>
+                <Link href="/course" className="text-gray-500 hover:text-black transition-colors text-sm">Course</Link>
                 <Link href="/letter" className="text-black text-sm">Letter</Link>
                 <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</Link>
               </nav>
@@ -105,7 +105,7 @@ export default function TinkerHubLetter() {
   
             <div className="py-8">
               <div className="flex flex-col gap-3 mb-4">
-                <img
+                {/* <img
                   src="/placeholder-wmsv9.png"
                   alt="TinkerHub hackathon"
                   className="w-full aspect-square object-cover rounded-lg"
@@ -119,7 +119,7 @@ export default function TinkerHubLetter() {
                   src="/placeholder-k267i.png"
                   alt="Open source session"
                   className="w-full aspect-square object-cover rounded-lg"
-                />
+                /> */}
               </div>
               <p className="text-sm text-gray-400 text-center">moments from our journey together.</p>
             </div>
