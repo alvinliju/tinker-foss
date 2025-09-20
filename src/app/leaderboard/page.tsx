@@ -92,7 +92,7 @@ export default function Leaderboard() {
               <span className="font-medium text-black">TinkerHub</span>
             </a>
             <nav className="flex gap-6">
-              <a href="/course" className="text-gray-500 hover:text-black transition-colors text-sm">Courses</a>
+              <a href="/course" className="text-gray-500 hover:text-black transition-colors text-sm">Course</a>
               <a href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</a>
               <a href="/leaderboard" className="text-black text-sm">Leaderboard</a>
             </nav>

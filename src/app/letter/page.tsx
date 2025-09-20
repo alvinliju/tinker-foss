@@ -18,7 +18,7 @@ export default function TinkerHubLetter() {
                 <span className="font-medium text-black">TinkerHub</span>
               </Link>
               <nav className="flex gap-6">
-                <Link href="/course" className="text-gray-500 hover:text-black transition-colors text-sm">Courses</Link>
+                <Link href="/course" className="text-gray-500 hover:text-black transition-colors text-sm">Course</Link>
                 <Link href="/letter" className="text-black text-sm">Letter</Link>
                 <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</Link>
               </nav>

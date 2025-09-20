@@ -66,7 +66,7 @@ export default function CTFLandingPage() {
             </Link>
             <div className="flex items-center gap-6">
               <nav className="flex gap-6">
-                <Link href="/course" className="text-black text-sm">Courses</Link>
+                <Link href="/course" className="text-black text-sm">Course</Link>
                 <Link href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</Link>
                 <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</Link>
               </nav>
