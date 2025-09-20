@@ -274,14 +274,14 @@ TinkerHub's Simple Meme Generator: beginner-friendly HTML/CSS/JavaScript project
 - Welcoming community with mentors
 - Diverse contribution opportunities
 
-**Getting Started:**
+**Getting Started:** \n
     # Fork and clone
-    git clone https://github.com/YOUR_USERNAME/simple-meme-generator.git
-    cd simple-meme-generator
-    git remote add upstream https://github.com/JakeOJeff/foss-flip.git
+
+    git clone https://github.com/YOUR_USERNAME/foss-flip.git \n
+    cd simple-meme-generator \n
+    git remote add upstream https://github.com/JakeOJeff/foss-flip.git \n
     
-    # Open in browser
-    open index.html
+    Open "index.html" File
 
 **Project Structure:**
     index.html           # Main HTML file
@@ -302,11 +302,15 @@ TinkerHub's Simple Meme Generator: beginner-friendly HTML/CSS/JavaScript project
 **Example: Random Template Button**
 
 HTML:
+    
+    # index.html
     <button id="randomTemplateBtn" class="btn">
       🎲 Random Template
     </button>
 
 CSS:
+
+    # application.css
     .btn {
       padding: 0.75rem 1.5rem;
       background: #6c757d;
@@ -318,6 +322,8 @@ CSS:
     }
 
 JavaScript:
+
+    # index.js
     document.getElementById('randomTemplateBtn').addEventListener('click', function() {
         const templates = document.querySelectorAll('.template-option');
         const random = templates[Math.floor(Math.random() * templates.length)];
