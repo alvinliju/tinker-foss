@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useUser, SignInButton, UserButton } from '@clerk/nextjs';
 
 interface LeaderboardUser {
   id: number;
@@ -19,6 +20,7 @@ interface LeaderboardStats {
 }
 
 export default function CTFLandingPage() {
+  const { isSignedIn, isLoaded } = useUser();
   const [topLeaders, setTopLeaders] = useState<LeaderboardUser[]>([]);
   const [stats, setStats] = useState<LeaderboardStats>({
     totalPlayers: 0,
@@ -62,11 +64,24 @@ export default function CTFLandingPage() {
               />
               <span className="font-medium text-black">TinkerHub</span>
             </Link>
-            <nav className="flex gap-6">
-              <Link href="/course" className="text-black text-sm">Courses</Link>
-              <Link href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</Link>
-              <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</Link>
-            </nav>
+            <div className="flex items-center gap-6">
+              <nav className="flex gap-6">
+                <Link href="/course" className="text-black text-sm">Courses</Link>
+                <Link href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</Link>
+                <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</Link>
+              </nav>
+              {isLoaded && (
+                isSignedIn ? (
+                  <UserButton afterSignOutUrl="/" />
+                ) : (
+                  <SignInButton mode="modal">
+                    <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm">
+                      Sign In
+                    </button>
+                  </SignInButton>
+                )
+              )}
+            </div>
           </div>
         </div>
       </div>
