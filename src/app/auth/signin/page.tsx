@@ -30,6 +30,25 @@ export default function SignIn() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Navigation Header */}
+      <div className="border-b border-gray-100">
+        <div className="max-w-2xl mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            <a href="/" className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-black rounded-md flex items-center justify-center">
+                <div className="w-4 h-4 bg-white rounded-sm"></div>
+              </div>
+              <span className="font-medium text-black">TinkerHub</span>
+            </a>
+            <nav className="flex gap-6">
+              <a href="/" className="text-gray-500 hover:text-black transition-colors text-sm">Courses</a>
+              <a href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</a>
+              <a href="/leader-board" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
       <header className="py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <div className="mb-12">

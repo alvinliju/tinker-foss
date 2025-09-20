@@ -3,6 +3,25 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      {/* Navigation Header */}
+      <div className="border-b border-gray-100 w-full">
+        <div className="max-w-2xl mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            <a href="/" className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-black rounded-md flex items-center justify-center">
+                <div className="w-4 h-4 bg-white rounded-sm"></div>
+              </div>
+              <span className="font-medium text-black">TinkerHub</span>
+            </a>
+            <nav className="flex gap-6">
+              <a href="/" className="text-black text-sm">Courses</a>
+              <a href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</a>
+              <a href="/leader-board" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
