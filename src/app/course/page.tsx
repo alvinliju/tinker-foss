@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react"
 import { useUser, SignInButton, UserButton } from "@clerk/nextjs"
 import ReactMarkdown from "react-markdown"
-import remarkGfm from "remark-gfm"
 import { courses, Course } from "@/data/course"
+import remarkGfm from "remark-gfm"
 import Image from "next/image";
 import Link from "next/link";
 
@@ -162,12 +162,12 @@ export default function CoursePage() {
 
       <div className="max-w-6xl mx-auto px-4 pb-16 lg:flex lg:gap-12">
         <main className="flex-1 max-w-2xl space-y-8 text-gray-700 leading-relaxed text-lg">
-          <ReactMarkdown
+        <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
               p: ({ node, ...props }) => <p className="mb-4" {...props} />,
               li: ({ node, ...props }) => <li className="ml-6 mb-2" {...props} />,
-              code: ({ node, inline, className, children, ...props }) =>
+              code: ({ inline, className, children, ...props }: any) =>
                 inline ? (
                   <code className="bg-gray-100 px-1 rounded text-sm" {...props}>{children}</code>
                 ) : (
