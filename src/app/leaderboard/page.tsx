@@ -82,9 +82,13 @@ export default function Leaderboard() {
         <div className="max-w-2xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <a href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-black rounded-md flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-sm"></div>
-              </div>
+              <Image 
+                src="https://paths.tinkerhub.org/logo.png" 
+                alt="TinkerHub Logo" 
+                width={32} 
+                height={32}
+                className="rounded-md"
+              />
               <span className="font-medium text-black">TinkerHub</span>
             </a>
             <nav className="flex gap-6">
@@ -99,9 +103,15 @@ export default function Leaderboard() {
       <header className="py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <div className="mb-12">
-            {/* Simple logo */}
-            <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center mx-auto mb-8">
-              <div className="w-6 h-6 bg-white rounded-sm"></div>
+            {/* Official TinkerHub Logo */}
+            <div className="h-full w-full  bg-white rounded-lg flex items-center justify-center mx-auto mb-8 p-2">
+              <Image 
+                src="https://paths.tinkerhub.org/logo.png" 
+                alt="TinkerHub Logo" 
+                width={120}
+                    height={120}
+                className="rounded-md"
+              />
             </div>
 
             <h1 className="text-4xl md:text-5xl font-normal text-black mb-6 text-balance">

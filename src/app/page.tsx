@@ -1,122 +1,242 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+
+interface LeaderboardUser {
+  id: number;
+  name: string;
+  points: number;
+  avatar: string;
+  joined: string;
+}
+
+interface LeaderboardStats {
+  totalPlayers: number;
+  activeToday: number;
+  totalPointsEarned: number;
+}
+
+export default function CTFLandingPage() {
+  const [topLeaders, setTopLeaders] = useState<LeaderboardUser[]>([]);
+  const [stats, setStats] = useState<LeaderboardStats>({
+    totalPlayers: 0,
+    activeToday: 0,
+    totalPointsEarned: 0
+  });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchLeaderboardData();
+  }, []);
+
+  const fetchLeaderboardData = async () => {
+    try {
+      const response = await fetch('/api/leaderboard');
+      if (response.ok) {
+        const data = await response.json();
+        setTopLeaders(data.leaderboard.slice(0, 3)); // Get top 3 for display
+        setStats(data.stats);
+      }
+    } catch (error) {
+      console.error('Error fetching leaderboard data:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div className="min-h-screen bg-white">
       {/* Navigation Header */}
-      <div className="border-b border-gray-100 w-full">
+      <div className="border-b border-gray-100">
         <div className="max-w-2xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <a href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-black rounded-md flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-sm"></div>
-              </div>
+            <Link href="/" className="flex items-center gap-2">
+              <Image 
+                src="https://paths.tinkerhub.org/logo.png" 
+                alt="TinkerHub Logo" 
+                width={32} 
+                height={32}
+                className="rounded-md"
+              />
               <span className="font-medium text-black">TinkerHub</span>
-            </a>
+            </Link>
             <nav className="flex gap-6">
-              <a href="/" className="text-black text-sm">Courses</a>
-              <a href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</a>
-              <a href="/leader-board" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</a>
+              <Link href="/course" className="text-black text-sm">Courses</Link>
+              <Link href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</Link>
+              <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</Link>
             </nav>
           </div>
         </div>
       </div>
 
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+      <header className="py-16 px-4">
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="mb-12">
+            {/* Official TinkerHub Logo */}
+            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-8 p-2">
+              <Image 
+                src="https://paths.tinkerhub.org/logo.png" 
+                alt="TinkerHub Logo" 
+                width={48} 
+                height={48}
+                className="rounded-md"
+              />
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <h1 className="text-4xl md:text-5xl font-normal text-black mb-6 text-balance">TinkerHub FOSS Challenge</h1>
+
+            <div className="text-gray-500 text-sm space-y-1">
+              <p>A hands-on journey into open source.</p>
+              <p>Learn. Build. Contribute. Lead.</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-2xl mx-auto px-4 pb-16">
+        <div className="space-y-8 text-gray-700 leading-relaxed text-lg">
+          <div className="space-y-6">
+            <p className="text-xl">Ready to dive deep into open source?</p>
+
+            <p>
+              This isn't just another course. It's a challenge-based journey where you'll learn by doing, contribute to
+              real projects, and build skills that matter in the real world.
+            </p>
+
+            <p>
+              Think of it as a CTF (Capture The Flag) for FOSS enthusiasts — but instead of capturing flags, you're
+              capturing knowledge, building projects, and making meaningful contributions to the open source ecosystem.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <p className="text-xl">How it works:</p>
+
+            <div className="space-y-4">
+              <div className="border-l-4 border-gray-200 pl-6 py-2">
+                <p className="font-medium text-gray-900">1. Choose Your Path</p>
+                <p className="text-gray-600">Pick from beginner to advanced tracks based on your experience.</p>
+              </div>
+
+              <div className="border-l-4 border-gray-200 pl-6 py-2">
+                <p className="font-medium text-gray-900">2. Complete Challenges</p>
+                <p className="text-gray-600">
+                  Hands-on tasks that teach you Git, GitHub, project contribution, and community building.
+                </p>
+              </div>
+
+              <div className="border-l-4 border-gray-200 pl-6 py-2">
+                <p className="font-medium text-gray-900">3. Build & Contribute</p>
+                <p className="text-gray-600">Work on real open source projects and make meaningful contributions.</p>
+              </div>
+
+              <div className="border-l-4 border-gray-200 pl-6 py-2">
+                <p className="font-medium text-gray-900">4. Climb the Leaderboard</p>
+                <p className="text-gray-600">
+                  Earn points for completing challenges, helping others, and contributing to projects.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="py-8">
+            <div className="bg-gray-50 rounded-lg p-6 space-y-4">
+              <h3 className="text-xl font-medium text-gray-900">Current Leaderboard</h3>
+              
+              {loading ? (
+                <div className="text-center py-8">
+                  <div className="w-6 h-6 border-2 border-gray-300 border-t-black rounded-full animate-spin mx-auto mb-2"></div>
+                  <p className="text-gray-500 text-sm">Loading leaderboard...</p>
+                </div>
+              ) : topLeaders.length === 0 ? (
+                <div className="text-center py-8">
+                  <p className="text-gray-500 mb-2">No leaders yet!</p>
+                  <p className="text-sm text-gray-400">Be the first to complete a course and earn points.</p>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {topLeaders.map((leader, index) => {
+                    const medals = ['🥇', '🥈', '🥉'];
+                    const colors = ['text-yellow-600', 'text-gray-400', 'text-orange-600'];
+                    return (
+                      <div key={leader.id} className="flex justify-between items-center py-2 border-b border-gray-200">
+                        <div className="flex items-center space-x-3">
+                          <span className={`text-lg font-bold ${colors[index]}`}>
+                            {medals[index]}
+                          </span>
+                          <span className="font-medium">{leader.name}</span>
+                        </div>
+                        <span className="text-gray-600">{leader.points.toLocaleString()} pts</span>
+                      </div>
+                    );
+                  })}
+                  <div className="text-center pt-2">
+                    <p className="text-sm text-gray-500">
+                      Join {stats.totalPlayers} participant{stats.totalPlayers !== 1 ? 's' : ''} already on the journey
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <p className="text-xl">What you'll learn:</p>
+
+            <ul className="space-y-2 pl-6">
+              <li>• Git and GitHub workflows that professionals actually use</li>
+              <li>• How to find, evaluate, and contribute to open source projects</li>
+              <li>• Code review processes and collaboration best practices</li>
+              <li>• Documentation writing and community building</li>
+              <li>• Project maintenance and leadership skills</li>
+              <li>• Building your open source portfolio and reputation</li>
+            </ul>
+          </div>
+
+          <div className="space-y-6">
+            <p>
+              By the end of this challenge, you won't just understand open source — you'll be an active contributor with
+              real projects under your belt and connections in the community.
+            </p>
+
+            <p>
+              <strong>This is learning by doing, not just watching.</strong>
+            </p>
+          </div>
+
+          <div className="text-center py-12">
+            <p className="text-xl mb-6">Ready to start your FOSS journey?</p>
+            <p className="text-gray-500 mb-8">
+              Join hundreds of developers who are already building their open source careers.
+            </p>
+
+            <div className="space-y-4">
+              <Link 
+                href="/course"
+                className="inline-block bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+              >
+                Start the Challenge
+              </Link>
+              <div className="space-x-6">
+                <Link href="/course" className="text-gray-600 hover:text-black transition-colors underline">
+                  View Courses
+                </Link>
+                <Link href="/leaderboard" className="text-gray-600 hover:text-black transition-colors underline">
+                  See Full Leaderboard
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="border-t border-gray-100 py-8 px-4">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-sm text-gray-400">— TinkerHub FOSS Challenge</p>
+        </div>
       </footer>
     </div>
-  );
+  )
 }

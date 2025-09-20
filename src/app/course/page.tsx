@@ -5,7 +5,8 @@ import { useUser, SignInButton, UserButton } from "@clerk/nextjs"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { courses, Course } from "@/data/course"
-
+import Image from "next/image";
+import Link from "next/link";
 export default function CoursePage() {
   const { isSignedIn, user, isLoaded } = useUser()
   const [currentCourseIndex, setCurrentCourseIndex] = useState(0)
@@ -79,58 +80,43 @@ export default function CoursePage() {
     <div className="min-h-screen bg-white">
       {/* Navigation Header */}
       <div className="border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 py-4">
+        <div className="max-w-2xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <a href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-black rounded-md flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-sm"></div>
-              </div>
+            <Link href="/" className="flex items-center gap-2">
+              <Image 
+                src="https://paths.tinkerhub.org/logo.png" 
+                alt="TinkerHub Logo" 
+                width={32} 
+                height={32}
+                className="rounded-md"
+              />
               <span className="font-medium text-black">TinkerHub</span>
-            </a>
+            </Link>
             <nav className="flex gap-6">
-              <a href="/" className="text-black text-sm">Courses</a>
-              <a href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</a>
-              <a href="/leader-board" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</a>
+              <Link href="/course" className="text-black text-sm">Courses</Link>
+              <Link href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</Link>
+              <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</Link>
             </nav>
           </div>
         </div>
       </div>
 
       <header className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-start justify-between mb-8">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center">
-                <div className="w-6 h-6 bg-white rounded-sm"></div>
-              </div>
-              {isSignedIn && user && (
-                <div className="text-sm text-gray-600">
-                  <p>Welcome back, {user.firstName || user.username}</p>
-                  <p className="font-medium text-black">{totalPoints} points earned</p>
-                </div>
-              )}
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="mb-12">
+            {/* Official TinkerHub Logo */}
+            <div className="h-full w-full  bg-white rounded-lg flex items-center justify-center mx-auto mb-8 p-2">
+              <Image 
+                src="https://paths.tinkerhub.org/logo.png" 
+                alt="TinkerHub Logo" 
+                width={120}
+                    height={120}
+                className="rounded-md"
+              />
             </div>
 
-            <div className="flex items-center gap-4">
-              {!isSignedIn && (
-                <SignInButton mode="modal">
-                  <button className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors text-sm">
-                    Sign in to track progress
-                  </button>
-                </SignInButton>
-              )}
-              {isSignedIn && <UserButton />}
-            </div>
-          </div>
-
-          <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-normal text-black mb-6 text-balance">
-              {currentCourse.title}
-              {isSignedIn && userProgress[currentCourse.id] && (
-                <span className="ml-4 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                  ✓ Completed
-                </span>
-              )}
+              FOSS Learning Journey
             </h1>
 
             <div className="text-gray-500 text-sm mb-8">

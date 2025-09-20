@@ -43,7 +43,7 @@ export default function SignIn() {
             <nav className="flex gap-6">
               <a href="/" className="text-gray-500 hover:text-black transition-colors text-sm">Courses</a>
               <a href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</a>
-              <a href="/leader-board" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</a>
+              <a href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</a>
             </nav>
           </div>
         </div>
