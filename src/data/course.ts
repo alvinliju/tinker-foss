@@ -278,7 +278,7 @@ TinkerHub's Simple Meme Generator: beginner-friendly HTML/CSS/JavaScript project
     # Fork and clone
 
     git clone https://github.com/YOUR_USERNAME/foss-flip.git \n
-    cd simple-meme-generator \n
+    cd foss-flip \n
     git remote add upstream https://github.com/JakeOJeff/foss-flip.git \n
     
     Open "index.html" File
