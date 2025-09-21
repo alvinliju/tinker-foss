@@ -1,61 +1,20 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useUser, SignInButton, UserButton } from '@clerk/nextjs';
 
-
-interface LeaderboardUser {
-  id: number;
-  name: string;
-  points: number;
-  avatar: string;
-  joined: string;
-}
-
-interface LeaderboardStats {
-  totalPlayers: number;
-  activeToday: number;
-  totalPointsEarned: number;
-}
-
-export default function ClientLayout() {
+export default function Navbar() {
   const { isSignedIn, isLoaded } = useUser();
-  const [topLeaders, setTopLeaders] = useState<LeaderboardUser[]>([]);
-  const [stats, setStats] = useState<LeaderboardStats>({
-    totalPlayers: 0,
-    activeToday: 0,
-    totalPointsEarned: 0
-  });
-  const [loading, setLoading] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    fetchLeaderboardData();
-  }, []);
-
-  const fetchLeaderboardData = async () => {
-    try {
-      const response = await fetch('/api/leaderboard');
-      if (response.ok) {
-        const data = await response.json();
-        setTopLeaders(data.leaderboard.slice(0, 3)); // Get top 3 for display
-        setStats(data.stats);
-      }
-    } catch (error) {
-      console.error('Error fetching leaderboard data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
-    <div className="border-b border-gray-100">
-      <div className="max-w-2xl mx-auto px-4 py-4">
+    <nav className="border-b border-gray-100 bg-white">
+      <div className="max-w-6xl mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="https://paths.tinkerhub.org/logo.png"
               alt="TinkerHub Logo"
@@ -63,22 +22,39 @@ export default function ClientLayout() {
               height={32}
               className="rounded-md"
             />
-            <span className="font-medium text-black">TinkerHub</span>
+            <span className="font-semibold text-gray-900">TinkerHub</span>
           </Link>
 
-          {/* Desktop Navigation - Show on md and above */}
-          <div className="hidden md:flex items-center gap-6">
-            <nav className="flex gap-6">
-              <Link href="/course" className="text-black text-sm">Courses</Link>
-              <Link href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</Link>
-              <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</Link>
-            </nav>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex items-center gap-6">
+              <Link 
+                href="/course" 
+                className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              >
+                Courses
+              </Link>
+              <Link 
+                href="/letter" 
+                className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              >
+                Letter
+              </Link>
+              <Link 
+                href="/leaderboard" 
+                className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              >
+                Leaderboard
+              </Link>
+            </div>
+            
+            {/* Desktop Auth */}
             {isLoaded && (
               isSignedIn ? (
                 <UserButton afterSignOutUrl="/" />
               ) : (
                 <SignInButton mode="modal">
-                  <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm">
+                  <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
                     Sign In
                   </button>
                 </SignInButton>
@@ -86,7 +62,7 @@ export default function ClientLayout() {
             )}
           </div>
 
-          {/* Mobile Menu Button - Show below md */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
@@ -117,35 +93,35 @@ export default function ClientLayout() {
           </button>
         </div>
 
-        {/* Mobile Menu - Show below md */}
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-gray-100 pt-4">
-            <nav className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4">
               <Link 
                 href="/course" 
-                className="text-black text-sm py-2"
+                className="text-gray-600 hover:text-gray-900 transition-colors font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Courses
               </Link>
               <Link 
                 href="/letter" 
-                className="text-gray-500 hover:text-black transition-colors text-sm py-2"
+                className="text-gray-600 hover:text-gray-900 transition-colors font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Letter
               </Link>
               <Link 
                 href="/leaderboard" 
-                className="text-gray-500 hover:text-black transition-colors text-sm py-2"
+                className="text-gray-600 hover:text-gray-900 transition-colors font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Leaderboard
               </Link>
-            </nav>
+            </div>
             
             {/* Mobile Auth Section */}
-            <div className="mt-4 pt-4 border-t border-gray-100">
+            <div className="mt-6 pt-4 border-t border-gray-100">
               {isLoaded && (
                 isSignedIn ? (
                   <div className="flex items-center justify-between">
@@ -155,7 +131,7 @@ export default function ClientLayout() {
                 ) : (
                   <SignInButton mode="modal">
                     <button 
-                      className="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm"
+                      className="w-full bg-black text-white px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors font-medium"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Sign In
@@ -167,6 +143,7 @@ export default function ClientLayout() {
           </div>
         )}
       </div>
-    </div>
+    </nav>
   );
 }
+

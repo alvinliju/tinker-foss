@@ -9,44 +9,6 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="border-b border-gray-100">
-        <div className="max-w-2xl mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center gap-2">
-              <Image
-                src="https://paths.tinkerhub.org/logo.png"
-                alt="TinkerHub Logo"
-                width={32}
-                height={32}
-                className="rounded-md"
-              />
-              <span className="font-medium text-black">TinkerHub</span>
-            </Link>
-            <nav className="flex items-center gap-6">
-              <Link href="/course" className="text-gray-500 hover:text-black transition-colors text-sm">
-                Course
-              </Link>
-              <Link href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">
-                Letter
-              </Link>
-              <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">
-                Leaderboard
-              </Link>
-              {isLoaded &&
-                (isSignedIn ? (
-                  <UserButton afterSignOutUrl="/" />
-                ) : (
-                  <SignInButton mode="modal">
-                    <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm">
-                      Sign in
-                    </button>
-                  </SignInButton>
-                ))}
-            </nav>
-          </div>
-        </div>
-      </div>
-
       <header className="py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <div className="mb-12">

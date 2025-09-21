@@ -78,7 +78,6 @@ export default function Leaderboard() {
 
   return (
     <div className="min-h-screen bg-white">
-      <ClientLayout/>
 
       <header className="py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">

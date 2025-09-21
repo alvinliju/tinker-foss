@@ -52,30 +52,6 @@ export default function CTFLandingPage() {
     return (
         <div className="min-h-screen bg-white">
 
-        <ClientLayout/>
-            <header className="py-16 px-4">
-                <div className="max-w-2xl mx-auto text-center">
-                    <div className="mb-12">
-                        {/* Official TinkerHub Logo */}
-                        <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-8 p-2">
-                            <Image
-                                src="https://paths.tinkerhub.org/logo.png"
-                                alt="TinkerHub Logo"
-                                width={48}
-                                height={48}
-                                className="rounded-md"
-                            />
-                        </div>
-
-                        <h1 className="text-4xl md:text-5xl font-normal text-black mb-6 text-balance">TinkerHub FOSS Challenge</h1>
-
-                        <div className="text-gray-500 text-sm space-y-1">
-                            <p>A hands-on journey into open source.</p>
-                            <p>Learn. Build. Contribute. Lead.</p>
-                        </div>
-                    </div>
-                </div>
-            </header>
 
             <main className="max-w-2xl mx-auto px-4 pb-16">
                 <div className="space-y-8 text-gray-700 leading-relaxed text-lg">
