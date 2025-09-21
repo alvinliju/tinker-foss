@@ -90,11 +90,11 @@ export default function TinkerHubLetter() {
                   alt="TinkerHub hackathon"
                   className="w-full aspect-square object-cover rounded-lg"
                 />
-                <img
+                {/* <img
                   src="/foss-pics/3.jpeg"
                   alt="TinkerHub meetup"
                   className="w-full aspect-square object-cover rounded-lg"
-                />
+                /> */}
                 <img
                   src="/foss-pics/4.jpeg"
                   alt="Open source session"
