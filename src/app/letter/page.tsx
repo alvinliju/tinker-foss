@@ -1,31 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import ClientLayout from "@/components/ClientLayout";
 export default function TinkerHubLetter() {
     return (
       <div className="min-h-screen bg-white">
-        {/* Navigation Header */}
-        <div className="border-b border-gray-100">
-          <div className="max-w-2xl mx-auto px-4 py-4">
-            <div className="flex justify-between items-center">
-              <Link href="/" className="flex items-center gap-2">
-                <Image 
-                  src="https://paths.tinkerhub.org/logo.png" 
-                  alt="TinkerHub Logo" 
-                  width={32} 
-                  height={32}
-                  className="rounded-md"
-                />
-                <span className="font-medium text-black">TinkerHub</span>
-              </Link>
-              <nav className="flex gap-6">
-                <Link href="/course" className="text-gray-500 hover:text-black transition-colors text-sm">Course</Link>
-                <Link href="/letter" className="text-black text-sm">Letter</Link>
-                <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</Link>
-              </nav>
-            </div>
-          </div>
-        </div>
-
+        
+        <ClientLayout/>
         <header className="py-16 px-4">
           <div className="max-w-2xl mx-auto text-center">
             <div className="mb-12">
@@ -105,21 +85,21 @@ export default function TinkerHubLetter() {
   
             <div className="py-8">
               <div className="flex flex-col gap-3 mb-4">
-                {/* <img
-                  src="/placeholder-wmsv9.png"
+                <img
+                  src="/foss-pics/2.jpeg"
                   alt="TinkerHub hackathon"
                   className="w-full aspect-square object-cover rounded-lg"
                 />
                 <img
-                  src="/placeholder-goy70.png"
+                  src="/foss-pics/3.jpeg"
                   alt="TinkerHub meetup"
                   className="w-full aspect-square object-cover rounded-lg"
                 />
                 <img
-                  src="/placeholder-k267i.png"
+                  src="/foss-pics/4.jpeg"
                   alt="Open source session"
                   className="w-full aspect-square object-cover rounded-lg"
-                /> */}
+                />
               </div>
               <p className="text-sm text-gray-400 text-center">moments from our journey together.</p>
             </div>

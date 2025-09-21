@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useUser, SignInButton, UserButton } from '@clerk/nextjs';
+import ClientLayout from '@/components/ClientLayout';
 
 interface LeaderboardUser {
   id: number;
@@ -50,41 +51,7 @@ export default function CTFLandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation Header */}
-      <div className="border-b border-gray-100">
-        <div className="max-w-2xl mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center gap-2">
-              <Image 
-                src="https://paths.tinkerhub.org/logo.png" 
-                alt="TinkerHub Logo" 
-                width={32} 
-                height={32}
-                className="rounded-md"
-              />
-              <span className="font-medium text-black">TinkerHub</span>
-            </Link>
-            <div className="flex items-center gap-6">
-            <nav className="flex gap-6">
-                <Link href="/course" className="text-black text-sm">Courses</Link>
-                <Link href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</Link>
-                <Link href="/leaderboard" className="text-gray-500 hover:text-black transition-colors text-sm">Leaderboard</Link>
-            </nav>
-              {isLoaded && (
-                isSignedIn ? (
-                  <UserButton afterSignOutUrl="/" />
-                ) : (
-                  <SignInButton mode="modal">
-                    <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm">
-                      Sign In
-                    </button>
-                  </SignInButton>
-                )
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
+      <ClientLayout/>
 
       <header className="py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
