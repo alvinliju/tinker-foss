@@ -1,5 +1,6 @@
 'use client';
 
+import ClientLayout from "@/components/ClientLayout";
 import Image from "next/image";
 import { useEffect, useState } from 'react';
 
@@ -77,28 +78,7 @@ export default function Leaderboard() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation Header */}
-      <div className="border-b border-gray-100">
-        <div className="max-w-2xl mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <a href="/" className="flex items-center gap-2">
-              <Image 
-                src="https://paths.tinkerhub.org/logo.png" 
-                alt="TinkerHub Logo" 
-                width={32} 
-                height={32}
-                className="rounded-md"
-              />
-              <span className="font-medium text-black">TinkerHub</span>
-            </a>
-            <nav className="flex gap-6">
-              <a href="/course" className="text-gray-500 hover:text-black transition-colors text-sm">Course</a>
-              <a href="/letter" className="text-gray-500 hover:text-black transition-colors text-sm">Letter</a>
-              <a href="/leaderboard" className="text-black text-sm">Leaderboard</a>
-            </nav>
-          </div>
-        </div>
-      </div>
+      <ClientLayout/>
 
       <header className="py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
