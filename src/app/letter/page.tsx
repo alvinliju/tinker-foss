@@ -24,7 +24,7 @@ export default function TinkerHubLetter() {
               </h1>
   
               <div className="text-gray-500 text-sm space-y-1">
-                <p>by: TinkerHub.</p>
+                <p>with love, from: Suraj, Alvin and Paulyn.</p>
                 <p>
                   published: {new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}.
                 </p>
